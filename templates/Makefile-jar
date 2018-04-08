@@ -1,0 +1,23 @@
+JFLAGS = -g -Xlint
+JC = javac
+
+JAVASRC = $(wildcard *.java)
+CLASSES = \
+<classes>
+
+JARFILE = <executable>
+
+print-%  : ; @echo $* = $($*)
+
+all: $(JARFILE)
+
+$(JARFILE): $(CLASSES)
+	echo Main-class: <main-class> > Manifest
+	jar cvfm $(JARFILE) Manifest $(CLASSES)
+	rm Manifest
+
+$(CLASSES): $(JAVASRC)
+	$(JC) $(JFLAGS) $(JAVASRC)
+
+clean : 
+	rm -f *.class $(JARFILE)

@@ -1,0 +1,13 @@
+
+JAVAC=javac
+SOURCES = $(wildcard *.java)
+CLASSES = \
+<classes>
+
+all: $(CLASSES)
+
+clean :
+	rm -f *.class
+
+%.class : %.java
+	$(JAVAC) $<

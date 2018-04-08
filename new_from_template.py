@@ -4,7 +4,7 @@ import os
 import subprocess
 import datetime
 from pathlib import Path
-import make_makefile 
+import create_make
 from subprocess import PIPE, Popen
 def help_msg(file_types):
 	print("NFT e.g. New From Template \n   A helper script to quickly create files from a standard template. \n   Takes any file with one of the following extentions:")
@@ -25,10 +25,10 @@ def edit_template(TEMPLATE_STR, FILE_PREFIX, PROJECT):
 
 
 path = os.getcwd()
-running_dir = os.path.dirname(os.path.abspath(__file__))
+template_dir = os.path.dirname(os.path.abspath(__file__)) + '/templates'
 project = path.split("/")[-1]
-file_types = {"py":"python", "c":"C", "java":"Java", "csh":"csh", "sh":"bash", "README":"README" }
-
+file_types = {"py":"python", "c":"C", "java":"Java", "csh":"csh", "sh":"bash" }
+other_files = {"README":"README" , "Makefile" : "Makefile"}
 
 new_file = sys.argv[-1]
 ext = new_file.split(".")[-1]
@@ -38,11 +38,12 @@ if('-h' in sys.argv[-1] or len(sys.argv) <= 1 ):
 	help_msg(file_types)
 
 if(ext in file_types):
-	template_name= running_dir+ "/"+file_types[ext]+ '.' + ext
-	if(new_file == 'README'):
-		template_name = template_name[0:template_name.find('.')]
-	print("template_name  [" ,type(template_name).__name__, "]   :", template_name)
-
+	template_name= template_dir+ "/"+file_types[ext]+ '.' + ext
+elif(new_file == "README"):
+	template_name = template_dir+ "/README"
+elif(new_file == "Makefile"):
+	create_make.consruct(path, template_dir)
+	exit()
 else:
 	print ("Oops, invalid input \'{}\'. \nTry one of the following:".format(new_file))
 	for k in list(file_types.keys()):
