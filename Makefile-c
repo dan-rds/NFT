@@ -1,0 +1,13 @@
+CC = gcc
+CFLAGS = -g -Wall -O0 -std=c99 -D_SVID_SOURCE -lGL -lglut -lpng -lz -lm
+
+
+src = $(wildcard *.c)
+obj = $(src:.c=.o)
+
+<executable>: $(obj)
+	$(CC) -o $@ $^ $(LDFLAGS)
+
+.PHONY: clean
+clean:
+	rm -f $(obj) <executable>
