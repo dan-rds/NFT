@@ -13,6 +13,6 @@
 
 static inline void pr()
 {
-	printf("PR");
+	printf("Hello From <prefix>.h!");
 	return;
 }
