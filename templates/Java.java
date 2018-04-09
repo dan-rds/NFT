@@ -13,6 +13,6 @@ public class <filename>
 {
 	public static void main(String args[])
 	{
-
+		System.out.println("New Java file created from template")
 	}
 }

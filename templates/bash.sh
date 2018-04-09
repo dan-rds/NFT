@@ -8,3 +8,4 @@
        on <date>
 --------------------------------------*/
 '
+echo 'New bash file created from template'

@@ -7,3 +7,4 @@
 #       on <date>
 # -------------------------------------- 
 
+echo 'New C shell file created from template'

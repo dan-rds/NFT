@@ -6,3 +6,4 @@
        on <date>
 -------------------------------------- 
 '''
+print("New python3 script file created from template")

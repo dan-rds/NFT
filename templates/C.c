@@ -12,5 +12,6 @@
 
 
 int main(int argc, char ** argv) {
+	println("New C file created from template")
     return 0;
 }

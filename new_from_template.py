@@ -2,17 +2,20 @@
 import sys
 import os
 import subprocess
-import datetime
-from pathlib import Path
-import create_make
 from subprocess import PIPE, Popen
+import datetime
+
+import create_make
+
 def help_msg(file_types):
-	print("NFT e.g. New From Template \n   A helper script to quickly create files from a standard template. \n   Takes any file with one of the following extentions:")
+	print("NFT e.g. New From Template \n   A helper script to quickly create files from a standard template. \n   Takes any file with one of the following suffixentions:")
 	for k, v in list(file_types.items()):
 		print("\t{:<20}{:<20}".format("<filename>.{}".format(k), "creates a {} file".format(v)))
-		
+	print("Use nft with '-x' option to make the file executable.")
+	print("\tCreated by Daniel Richards \n\tMore at github.com/danieldrichards")
 	exit()
 
+# Advanced find and replace, performed on str of template file
 def edit_template(TEMPLATE_STR, FILE_PREFIX, PROJECT):
 
 	now = datetime.datetime.now()
@@ -23,41 +26,40 @@ def edit_template(TEMPLATE_STR, FILE_PREFIX, PROJECT):
 	TEMPLATE_STR = TEMPLATE_STR.replace("<project>", PROJECT)
 	return TEMPLATE_STR
 
-
-path = os.getcwd()
+curr_path = os.getcwd()
 template_dir = os.path.dirname(os.path.abspath(__file__)) + '/templates'
-project = path.split("/")[-1]
-file_types = {"py":"python", "c":"C", "java":"Java", "csh":"csh", "sh":"bash" }
-other_files = {"README":"README" , "Makefile" : "Makefile"}
-
+project = curr_path.split("/")[-1]
 new_file = sys.argv[-1]
-ext = new_file.split(".")[-1]
+suffix = new_file.split(".")[-1]
 prefix = new_file.split(".")[0]
+file_types = {"py":"python", "c":"C", "java":"Java", "csh":"csh", "sh":"bash" }
 
 if('-h' in sys.argv[-1] or len(sys.argv) <= 1 ):
 	help_msg(file_types)
 
-if(ext in file_types):
-	template_name= template_dir+ "/"+file_types[ext]+ '.' + ext
+if(suffix in file_types):
+	template_name = template_dir + "/"+ file_types[suffix] + '.' + suffix
 elif(new_file == "README"):
-	template_name = template_dir+ "/README"
+	template_name = template_dir + "/README"
 elif(new_file == "Makefile"):
-	create_make.consruct(path, template_dir)
+	create_make.construct(curr_path, template_dir)
 	exit()
 else:
 	print ("Oops, invalid input \'{}\'. \nTry one of the following:".format(new_file))
 	for k in list(file_types.keys()):
 		print("\t<filename>.{}".format(k))
+	print("\tREADME\n\tMakefile")
 	exit()
 
-template_file = open(template_name, 'r')
-template = template_file.read()
-
+template = open(template_name, 'r').read()	# Contents of template file as str
 template = edit_template(template, prefix, project)
-output_file = open("./"+new_file, 'w')
+output_file = open("./" + new_file, 'w')
 output_file.write(template)
 output_file.close()
 
+# Changes file mode to executable.
+if('-x' in sys.argv):
+	Popen("chmod a+x " + new_file, shell=True)
 
 
 
