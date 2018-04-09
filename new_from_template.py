@@ -8,9 +8,13 @@ import datetime
 import create_make
 
 def help_msg(file_types):
+	file_types["README"] = "README"
+	file_types["Makefile"] = "Makefile"
 	print("NFT e.g. New From Template \n   A helper script to quickly create files from a standard template. \n   Takes any file with one of the following suffixentions:")
 	for k, v in list(file_types.items()):
-		print("\t{:<20}{:<20}".format("<filename>.{}".format(k), "creates a {} file".format(v)))
+		print("\t{:<25}{:<25}".format("<filename>.{}".format(k), " creates " + v + " file"))
+	print("\t{:<25}{:<25}".format("README", "creates README"))
+	print("\t{:<25}{:<25}".format("Makefile", "creates Makefile"))
 	print("Use nft with '-x' option to make the file executable.")
 	print("\tCreated by Daniel Richards \n\tMore at github.com/danieldrichards")
 	exit()

@@ -29,7 +29,8 @@ def construct(PATH, TEMPLATE_DIR):
 		if(chosen_type in makefile_types):
 			break
 		print("\nInvalid Makefile type, try again.")
-	exe = input("Specify executable [optional]: ")
+
+	exe = input("Specify executable [or jar file]: ")
 	main_class = input("Specify class that contains main() [optional]: ")
 	ext = exe.split(".")[-1]
 	template_path = TEMPLATE_DIR + "/Makefile-" + chosen_type
@@ -43,5 +44,3 @@ def construct(PATH, TEMPLATE_DIR):
 
 	new_file.write(template)
 	new_file.close()
-
-	
