@@ -4,73 +4,60 @@ A python script for quickly ceating a **N**ew **F**ile form a **T**emplate
 
 
 ### Installing
+Simply clone this repository into a directory that you won't accidentally delete or move. I would recommend putting it in ~/ . Navigate to the newly created directory can run the following commands:
 
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
 
 ```
-Give the example
+$ chmod a+x ./install
+$ ./install
 ```
-
-And repeat
-
+This will prompt you with a few commands to fill out the templates with your information. In order to source your bash profile, it'll ask you to login again. If this makes you uncomfortable, you can '^C' and run the source command manually with:
 ```
-until finished
+$ source ~/.bash_profile
 ```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
+### Running
+Just like that, we should be in business. Now work something like the Touch command but instead of creating empty files, when Will create basic boilerplate files from the template. Try it out with something like:
 ```
-Give an example
+$ nft test.java
 ```
-
-### And coding style tests
-
-Explain what these tests test and why
-
+Which created the folowing file:
 ```
-Give an example
+/*-------------------------------------
+test.java
+project
+    by Daniel Richards (ddrichar@ucsc.edu)
+       on 4-9-2018
+--------------------------------------*/
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class test
+{
+        public static void main(String args[])
+        {
+                System.out.println("New Java file created from template")
+        }
+}
 ```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-_ [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-_ [Maven](https://maven.apache.org/) - Dependency Management
-_ [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+### Adding Templates
+Also not as simple as the install, adding templates it's quite easy. In new_from_template.py you'll find a dictionary called file_types. Add an entry to the dictionary with the key (language name) and value (file extention). Next, in the ./templates sub-directory add a file named <key>.<value>. For instance if you wanted to add a C++ template, you could do something like:
+```
+file_types[C++]=cpp
+```
+Using the other templates as a reference, add specific replace wildcards for the program i.e. <date> <filename> <project>.
 
 ## Authors
 
-_ __Billie Thompson__ - _Initial work_ - [PurpleBooth](https://github.com/PurpleBooth)
+* [**Daniel Richards**](https://danieldrichards.github.io/)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+
+#### CAUTION
+> as with any install from source, it is important to read it over and I understand what the code is doing.
+Pay special attention bash scripts as well as any process calls in the Python scripts i.e. Popen, open, write or subproces. By design, this program will edit system files so if you don't understand what a command is doing, check the docs.   
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is unlicensed and in the [Public Domain](https://wiki.creativecommons.org/wiki/Public_domain) with the sole provision that if you make anything cool with my code, I want to know about it!
 
-## Acknowledgments
-
-_ Hat tip to anyone who's code was used
-_ Inspiration
-_ etc
