@@ -41,6 +41,16 @@ public class test
         }
 }
 ```
+### Other File Types
+NFT can also build non-source files. The standard README is included in the templates and he can be run with:
+```
+$ nft README
+```
+But the real coup de grace is the makefiles. NFT can build makefiles for Java and C projects and can even make a jar package. NFT will compile files beforehand to catch any nested classes that don't correspond .java files. Run the makefile script with:
+```
+$ nft Makefile
+```
+
 ### Adding Templates
 Also not as simple as the install, adding templates it's quite easy. In new_from_template.py you'll find a dictionary called file_types. Add an entry to the dictionary with the key (language name) and value (file extention). Next, in the ./templates sub-directory add a file named <key>.<value>. For instance if you wanted to add a C++ template, you could do something like:
 ```
@@ -54,7 +64,7 @@ Using the other templates as a reference, add specific replace wildcards for the
 
 
 #### CAUTION
-> as with any install from source, it is important to read it over and I understand what the code is doing.
+> As with any install from source, it is important to read it over and I understand what the code is doing.
 Pay special attention bash scripts as well as any process calls in the Python scripts i.e. Popen, open, write or subproces. By design, this program will edit system files so if you don't understand what a command is doing, check the docs.   
 
 ## License
