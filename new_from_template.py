@@ -36,7 +36,7 @@ project = curr_path.split("/")[-1]
 new_file = sys.argv[-1]
 suffix = new_file.split(".")[-1]
 prefix = new_file.split(".")[0]
-file_types = {"py":"python", "c":"C", "java":"Java", "csh":"csh", "sh":"bash" }
+file_types = {"py":"python", "c":"C", "java":"Java", "csh":"csh", "sh":"bash", 'rb': 'ruby'}
 
 if('-h' in sys.argv[-1] or len(sys.argv) <= 1 ):
 	help_msg(file_types)
