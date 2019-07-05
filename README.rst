@@ -50,6 +50,7 @@ Which created the following file:
 Other File Types
 ~~~~~~~~~~~~~~~~
 NFT can make the following kinds of source files:
+
 - C files and headers
 - Java
 - Python
@@ -57,6 +58,7 @@ NFT can make the following kinds of source files:
 - Shell (bash and Csh)
 
 NFT can also build non-source files. The standard README types are included:
+
 - README (txt)
 - README.md (markdown)
 - README.rst (restructured text)
