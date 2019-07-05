@@ -1,1 +1,4 @@
 __pycache__
+config.yaml
+templates.pickle
+test.py
