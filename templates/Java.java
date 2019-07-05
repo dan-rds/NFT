@@ -1,7 +1,7 @@
 /*-------------------------------------
 <filename>.java
 <project>
-    by Daniel Richards (ddrichar@ucsc.edu)
+    by <name> (<email>)
        on <date>
 --------------------------------------*/
 
@@ -13,6 +13,6 @@ public class <filename>
 {
 	public static void main(String args[])
 	{
-		System.out.println("New Java file created from template")
+		System.out.println("New Java file created from template");
 	}
 }

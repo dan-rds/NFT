@@ -2,7 +2,7 @@
 <filename>.h
 <project>
 
-    by Daniel Richards (ddrichar@ucsc.edu)
+    by <name> (<email>)
        on <date>
 --------------------------------------*/
 

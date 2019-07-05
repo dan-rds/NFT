@@ -1,7 +1,8 @@
 /*-------------------------------------
 <filename>.c
+<project>
 
-    by Daniel Richards (ddrichar@ucsc.edu)
+    by <name> (<email>)
        on <date>
 --------------------------------------*/
 

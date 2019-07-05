@@ -1,8 +1,9 @@
 #!/usr/bin/env ruby
 =begin
 <filename>.rb
+<project>
 
-    by Daniel Richards (ddrichar@ucsc.edu)
+    by <name> (<email>)
        on <date>
 -------------------------------------- 
 =end
