@@ -17,7 +17,7 @@ INSTALL_REQUIRES = (
 
 def version():
     """Return version string."""
-    with io.open('autopep8.py') as input_file:
+    with io.open('main.py') as input_file:
         for line in input_file:
             if line.startswith('__version__'):
                 return ast.parse(line).body[0].value.s
