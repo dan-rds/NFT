@@ -1,7 +1,6 @@
 """Setup for nft"""
 
 import pickle
-from os import listdir
 from os.path import isfile, join
 import yaml
 import io
@@ -17,13 +16,13 @@ INSTALL_REQUIRES = (
 
 def version():
     """Return version string."""
-    with io.open('main.py') as input_file:
+    with io.open('nft.py') as input_file:
         for line in input_file:
             if line.startswith('__version__'):
                 return ast.parse(line).body[0].value.s
 
 
-with io.open('README.md') as readme:
+with io.open('README.rst') as readme:
     setup(
         name='nft',
         version=version(),
@@ -32,11 +31,12 @@ with io.open('README.md') as readme:
         license='Expat License',
         author='Daniel Richards',
         author_email='ddrichar@ucsc.edu',
+        include_package_data=True,
         url='https://github.com/dan-rds/NFT',
         classifiers=[
             'Environment :: Console',
             'Intended Audience :: Developers',
-            'License :: MIT License',
+            'License :: OSI Approved :: MIT License',
             'Operating System :: OS Independent',
             'Programming Language :: Python :: 3',
             'Programming Language :: Python :: 3.4',
@@ -50,29 +50,5 @@ with io.open('README.md') as readme:
         install_requires=INSTALL_REQUIRES,
         py_modules=['nft'],
         zip_safe=False,
-        entry_points={'console_scripts': ['nft = main:main']},
+        entry_points={'console_scripts': ['nft = nft:nft']},
     )
-
-template_filenames = [f for f in listdir(
-    "templates") if isfile(join("templates", f))]
-
-templates_dict = {}
-for filename in template_filenames:
-    template = open(join("templates", filename), "rb")
-    file_extention = filename.split('.')[-1]
-    templates_dict[file_extention] = template.read()
-
-
-filename = 'templates.pickle'
-outfile = open(filename, 'wb')
-
-pickle.dump(templates_dict, outfile)
-outfile.close()
-
-print("Starting user configuration...")
-name = input("Name:")
-email = input("Email address [or github URL] :")
-
-configs = {"name": name, "email": email}
-config_file = open("config.yaml", "w")
-yaml.dump(configs, config_file, default_flow_style=False)

@@ -2,3 +2,9 @@ __pycache__
 config.yaml
 templates.pickle
 test.py
+build/*
+dist/*
+nft.egg-info/*
+build
+dist
+nft.egg-info
