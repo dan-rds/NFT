@@ -9,7 +9,7 @@ def version():
 
 with io.open('README.rst') as readme:
     setup(name='nft',
-            version=__version__,
+            version=version(),
             description='A tool for quickly creating a New File form a Template',
             long_description=readme.read(),
             license='Expat License',
