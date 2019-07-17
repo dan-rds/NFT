@@ -6,7 +6,7 @@ import pickle
 import yaml
 import datetime
 
-__version__ = 2.4
+__version__ = '2.4'
 
 def absolute_filename(relative_filename):
     dir_path = os.path.dirname(os.path.realpath(__file__))
