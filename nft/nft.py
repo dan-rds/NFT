@@ -14,22 +14,6 @@ def absolute_filename(relative_filename):
     return join(dir_path, relative_filename)
 
 
-def test_file():
-
-    onlyfiles = [
-        f for f in listdir(
-            absolute_filename("templates")) if isfile(
-            absolute_filename(
-                join(
-                    "templates",
-                    f)))]
-    print(absolute_filename(None))
-    print("Files : ", onlyfiles)
-    f = open(absolute_filename("text.txt"), "r+")
-    print("from pkg: ", f.readlines())
-    return f.readlines()
-
-
 def get_project_name(current_dir):
     """
     Grabs name of remote if it exists, otherwise, gets directory name
@@ -98,8 +82,6 @@ def config():
                         join(
                             "templates",
                             f)))]
-    print(template_filenames)
-
     templates_dict = {}
     for filename in template_filenames:
         template = open(filename, "rb")
@@ -137,7 +119,7 @@ def main(args, executable_flag):
     curr_path = os.getcwd()
 
     templates_dict = pickle.load(templates_pickle)
-    print(templates_dict.keys())
+
     template_string = templates_dict[file_extention].decode('UTF-8')
 
     project_name = get_project_name(curr_path)

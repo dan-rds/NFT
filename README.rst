@@ -10,7 +10,7 @@ Installing
 
 ::
 
-    $ pip3 install nft
+    $ pip install nft
 
 
 Running

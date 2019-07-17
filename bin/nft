@@ -21,6 +21,7 @@ if __name__ == "__main__":
                       dest="v_flag",
                       default=False,
                       help="Verbose mode",)
+
     (options, args) = parser.parse_args()
     options_dict = vars(options)
 
@@ -29,4 +30,5 @@ if __name__ == "__main__":
     if len(args) != 1:
         msg = "Needed one file name but found " + str(len(args))
         logging.error(msg)
+        exit(1)
     nft.main(args, executable_flag)
