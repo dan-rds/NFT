@@ -6,6 +6,7 @@ import pickle
 import yaml
 import datetime
 
+__version__ = 2.4
 
 def absolute_filename(relative_filename):
     dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -54,6 +55,7 @@ def edit_template_string(template_str, file_prefix, project_name):
     date = ("{}-{}-{}".format(now.month, now.day, now.year))
     config_filename = absolute_filename("config.yaml")
     configs = yaml.load(open(config_filename, "r"), Loader=yaml.SafeLoader)
+    replace["<year>"] = str(now.year)
     replace_pairs["<date>"] = date
     replace_pairs["<filename>"] = file_prefix
     replace_pairs["<project>"] = project_name

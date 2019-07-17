@@ -4,7 +4,7 @@
 <project>
 
     by <name> (<email>)
-       on <date>
+    Copyright © <year> <name>. All rights reserved.
 -------------------------------------- 
 '''
 print("New python3 script file created from template")

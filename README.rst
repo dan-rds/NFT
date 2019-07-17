@@ -32,7 +32,7 @@ Which created the following file:
     test.java
     temp_project
         by Daniel Richards (ddrichar@ucsc.edu)
-           on 4-9-2019
+        Copyright © 2019 Daniel Richards. All rights reserved.
     --------------------------------------*/
 
     import java.util.*;

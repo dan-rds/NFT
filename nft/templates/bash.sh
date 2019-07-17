@@ -5,7 +5,7 @@
 <project>
 
     by <name> (<email>)
-       on <date>
+    Copyright © <year> <name>. All rights reserved.
 --------------------------------------*/
 '
 echo 'New bash file created from template'

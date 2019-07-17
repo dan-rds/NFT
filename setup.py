@@ -1,6 +1,11 @@
 from setuptools import setup
 import io
-__version__ = '2.3'
+def version():
+    """Return version string."""
+    with io.open('nft/nft.py') as input_file:
+        for line in input_file:
+            if line.startswith('__version__'):
+                return ast.parse(line).body[0].value.s
 
 with io.open('README.rst') as readme:
     setup(name='nft',
