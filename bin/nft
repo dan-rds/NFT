@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+
+import nft
+import sys
+from optparse import OptionParser
+import logging
+
+
+
+if __name__ == "__main__":
+    """ nft entry point. Mostly command line parsing """
+    parser = OptionParser(usage="usage: $./nft [options] <filename>",
+                          version="%prog 0.1")
+    parser.add_option("-x", "--eXecutable",
+                      action="store_true",
+                      dest="x_flag",
+                      default=False,
+                      help="Chmods the file so it is an executable")
+    parser.add_option("-v", "--verbose",
+                      action="store_true",
+                      dest="v_flag",
+                      default=False,
+                      help="Verbose mode",)
+    (options, args) = parser.parse_args()
+    options_dict = vars(options)
+
+    executable_flag = options_dict['x_flag']
+    verbose_flag = options_dict['v_flag']
+    if len(args) != 1:
+        msg = "Needed one file name but found " + str(len(args))
+        logging.error(msg)
+    nft.main(args, executable_flag)

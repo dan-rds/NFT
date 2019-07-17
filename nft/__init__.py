@@ -1,0 +1,2 @@
+
+from nft import main

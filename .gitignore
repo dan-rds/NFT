@@ -9,3 +9,4 @@ nft.egg-info/*
 build
 dist
 nft.egg-info
+.vscode/*
