@@ -2,7 +2,7 @@
 NFT
 ===
 
-A python script for quickly ceating a **N**\ ew **F**\ ile form a
+A python script for quickly creating a **N**\ ew **F**\ ile form a
 **T**\ emplate
 
 Installing
