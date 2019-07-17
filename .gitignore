@@ -2,6 +2,7 @@ __pycache__
 config.yaml
 templates.pickle
 test.py
+test.rb
 build/*
 dist/*
 nft.egg-info/*
