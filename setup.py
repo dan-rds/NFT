@@ -21,7 +21,7 @@ with io.open('README.rst') as readme:
             classifiers=[
                 "Programming Language :: Python :: 3"
             ],
-            install_requires=['setuptools==40.7.3', 'plumbum==1.6.7', 'PyYAML==5.1.1'],
+            install_requires=['setuptools==65.5.1', 'plumbum==1.6.7', 'PyYAML==5.1.1'],
             zip_safe=False,
             scripts=['bin/nft'],
             keywords='automation, template',
